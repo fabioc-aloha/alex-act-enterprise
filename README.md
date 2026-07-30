@@ -87,17 +87,75 @@ alex-act-enterprise/
 
 Same layout as [`alex-act-core`](https://github.com/fabioc-aloha/Alex_ACT_Core) and [`alex-act-illustrator-plugin`](https://github.com/fabioc-aloha/Alex_ACT_Illustrator_Plugin) — the proven Steward-authored CLI plugin pattern.
 
-## Install (once content ships)
+## Install
+
+**Prerequisites** (once per machine):
+
+- **Copilot CLI ≥ 1.0.75** — [install docs](https://docs.github.com/copilot/how-tos/set-up/install-copilot-cli). Update with `winget upgrade --id GitHub.CopilotCLI` on Windows.
+- **GitHub CLI authenticated** — `gh auth login` and confirm with `gh auth status`.
+- **Alex ACT Core installed first** — `alex-act-enterprise` composes on top of Core's plugin-management framework.
+
+Full brand-new-user walkthrough (four personas, five install stages, anti-patterns): see [`Alex_ACT_Steward/constellation/USER-EXPERIENCE.md`](https://github.com/fabioc-aloha/Alex_ACT_Steward/blob/main/constellation/USER-EXPERIENCE.md).
+
+### Method A — direct install from GitHub (works today)
 
 ```powershell
-# From the public Mall catalog (once published):
-copilot plugin install alex-act-enterprise@alex-mall
-
-# Or directly from GitHub during development:
 copilot plugin install fabioc-aloha/alex-act-enterprise
 ```
 
-Empty scaffold today — installing v0.1.0 registers the plugin but ships no artefacts.
+Installs at user scope — Enterprise's `setup-enterprise-stack` skill and `/setup-enterprise` prompt become available in every workspace.
+
+### Method B — via the Alex ACT Mall (future path)
+
+```powershell
+copilot plugin install alex-act-enterprise@alex-mall
+```
+
+Mall entry lands after Core's mall entry does. Until then use Method A.
+
+### Verify the install
+
+```powershell
+copilot plugin list
+```
+
+You should see `alex-act-enterprise@_direct` (Method A) or `alex-act-enterprise@alex-mall` (Method B). From Copilot Chat, `/setup-enterprise` should appear in the slash-command picker.
+
+## Use — configure the Microsoft ecosystem in a workspace
+
+The Microsoft ecosystem plugins (Azure, Fabric-*, Power BI, M365 Agents Toolkit) are **project-specific** per [`PLUGIN-INTEGRATION.md` § 2](https://github.com/fabioc-aloha/Alex_ACT_Steward/blob/main/constellation/PLUGIN-INTEGRATION.md). Enterprise defaults to **repo scope** — the target block gets written to `.github/copilot/settings.json` in whatever workspace you're in, so teammates inherit the setup on next `git pull`.
+
+Open your Microsoft-ecosystem workspace and invoke:
+
+```text
+/setup-enterprise
+```
+
+The skill has three modes:
+
+1. **Emit only** (safe default) — prints the target settings block for review; you paste it yourself.
+2. **Consent-gated auto-install** — after your explicit yes, merges the block into `.github/copilot/settings.json` and runs `copilot plugin install` for each entry.
+3. **Audit only** — read-only comparison against the current state; reports which plugins are enabled, missing, or at the wrong scope.
+
+Pass `--user` to write to user scope instead (`~/.copilot/settings.json`) — useful if you work in the Microsoft ecosystem across every workspace.
+
+## Update Enterprise
+
+```powershell
+copilot plugin update alex-act-enterprise
+```
+
+Read the [CHANGELOG](CHANGELOG.md) before applying breaking updates. Core's `/update-plugins` prompt reads the CHANGELOG for you and consents-gate breaking changes.
+
+## Uninstall
+
+```powershell
+copilot plugin uninstall alex-act-enterprise
+```
+
+Uninstalling Enterprise **does not** remove the downstream Microsoft plugins it configured. Those stay enabled in their respective `settings.json` files until you uninstall them individually (`copilot plugin uninstall azure@azure-skills`, etc.) or edit the `enabledPlugins` block.
+
+**Troubleshooting.** If uninstall fails with `Access is denied` (close VS Code first) or `Plugin "..." is not installed` while the plugin still shows in `plugin list` (zombie entry in `~/.copilot/config.json`), see [`USER-EXPERIENCE.md § Optional — start from a clean slate`](https://github.com/fabioc-aloha/Alex_ACT_Steward/blob/main/constellation/USER-EXPERIENCE.md) for the two-file cleanup pattern.
 
 ## Roadmap
 
