@@ -6,6 +6,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Content port — `setup-enterprise-stack` skill + `/setup-enterprise` prompt (2026-07-30)
+
+First shipped content. Config-template skill + slash-command prompt that emit the seven-plugin `enabledPlugins` + `extraKnownMarketplaces` block from Steward's user-brain inventory § 184.
+
+Contents:
+
+- `.github/skills/setup-enterprise-stack/SKILL.md` — three-mode flow (emit only, consent-gated auto-install, audit only), prerequisite table for Azure / Fabric / Power BI / M365 subscriptions, safety rules against overwriting existing `~/.copilot/settings.json` entries.
+- `.github/prompts/setup-enterprise.prompt.md` — thin `/setup-enterprise` slash-command wrapper that loads the skill and runs the three-mode flow.
+
+Manifest updated:
+
+- `shape`: `empty-scaffold` → `one-skill + one-prompt (config-template only)`
+- `$comment`: refreshed to note the skill + prompt now ship
+- `assets.skills[]`: `[]` → `[".github/skills/setup-enterprise-stack/SKILL.md"]`
+- `assets.prompts[]`: `[]` → `[".github/prompts/setup-enterprise.prompt.md"]`
+
+Content sourced directly from Steward's [`brain/user-brain-inventory.md` § 184](https://github.com/fabioc-aloha/Alex_ACT_Steward/blob/main/brain/user-brain-inventory.md) — no upstream heir to port from (this plugin is 100% Steward-authored).
+
 ### Scaffold (2026-07-30)
 
 Initial repository scaffold following the proven `alex-act-core` / `alex-act-illustrator-plugin` shape.

@@ -1,8 +1,8 @@
 {
-  "$comment": "Mall-side plugin manifest. Config-template plugin: ships a single `setup-enterprise-stack` skill (once authored) that prints the ~/.copilot/settings.json block for 7 public Microsoft ecosystem plugins (Azure, Fabric consumption/skills/operations/authoring, Power BI authoring, M365 Agents Toolkit). Every target plugin is public — any tenant with the corresponding Microsoft subscription can enable them. Version 0.1.0 = empty scaffold; content lands via evidence-gated Steward proposals per Alex_ACT_Steward/constellation/act/CURATION-RULES.md.",
+  "$comment": "Mall-side plugin manifest. Config-template plugin: ships a `setup-enterprise-stack` skill + `/setup-enterprise` prompt that print the ~/.copilot/settings.json block for 7 public Microsoft ecosystem plugins (Azure, Fabric consumption/skills/operations/authoring, Power BI authoring, M365 Agents Toolkit). Every target plugin is public — any tenant with the corresponding Microsoft subscription can enable them. Version 0.1.0 ships the config template; growth via evidence-gated Steward proposals per Alex_ACT_Steward/constellation/act/CURATION-RULES.md.",
   "plugin": "alex-act-enterprise",
   "version": "0.1.0",
-  "shape": "empty-scaffold",
+  "shape": "one-skill + one-prompt (config-template only)",
   "description": "Alex ACT config-template plugin for the public Microsoft ecosystem — Azure, Fabric (consumption, skills, operations, authoring), Power BI, and M365 Agents Toolkit. Ships a single scaffolding skill (`setup-enterprise-stack`) that generates the `~/.copilot/settings.json` block for the 7 target plugins. Every entry is public and works for any tenant with the corresponding Microsoft subscription. Composes alongside `alex-act-core` (baseline discipline) and `alex-act-illustrator-plugin` (visual authoring). Maintained by Alex_ACT_Steward.",
   "homepage": "https://github.com/fabioc-aloha/alex-act-enterprise",
   "license": "MIT",
@@ -36,8 +36,12 @@
   },
   "assets": {
     "instructions": [],
-    "skills": [],
-    "prompts": [],
+    "skills": [
+      ".github/skills/setup-enterprise-stack/SKILL.md"
+    ],
+    "prompts": [
+      ".github/prompts/setup-enterprise.prompt.md"
+    ],
     "agents": []
   },
   "verify_install": {
