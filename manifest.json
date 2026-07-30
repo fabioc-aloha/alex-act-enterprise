@@ -1,0 +1,51 @@
+{
+  "$comment": "Mall-side plugin manifest. Config-template plugin: ships a single `setup-enterprise-stack` skill (once authored) that prints the ~/.copilot/settings.json block for 7 public Microsoft ecosystem plugins (Azure, Fabric consumption/skills/operations/authoring, Power BI authoring, M365 Agents Toolkit). Every target plugin is public — any tenant with the corresponding Microsoft subscription can enable them. Version 0.1.0 = empty scaffold; content lands via evidence-gated Steward proposals per Alex_ACT_Steward/constellation/act/CURATION-RULES.md.",
+  "plugin": "alex-act-enterprise",
+  "version": "0.1.0",
+  "shape": "empty-scaffold",
+  "description": "Alex ACT config-template plugin for the public Microsoft ecosystem — Azure, Fabric (consumption, skills, operations, authoring), Power BI, and M365 Agents Toolkit. Ships a single scaffolding skill (`setup-enterprise-stack`) that generates the `~/.copilot/settings.json` block for the 7 target plugins. Every entry is public and works for any tenant with the corresponding Microsoft subscription. Composes alongside `alex-act-core` (baseline discipline) and `alex-act-illustrator-plugin` (visual authoring). Maintained by Alex_ACT_Steward.",
+  "homepage": "https://github.com/fabioc-aloha/alex-act-enterprise",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Alex Steward Finch",
+      "url": "https://github.com/fabioc-aloha/Alex_ACT_Steward"
+    }
+  ],
+  "keywords": [
+    "alex-act",
+    "config-template",
+    "microsoft-ecosystem",
+    "azure",
+    "fabric",
+    "powerbi",
+    "m365",
+    "mall-plugin"
+  ],
+  "category": "config-templates",
+  "prerequisites": {
+    "copilot_cli": ">=1.0.75",
+    "microsoft_tenant": "Any tenant with the target Microsoft subscriptions (Azure, Fabric workspace, M365)"
+  },
+  "install_paths": {
+    "skills": ".github/skills/",
+    "instructions": ".github/instructions/",
+    "prompts": ".github/prompts/",
+    "agents": ".github/agents/",
+    "config": ".github/config/"
+  },
+  "assets": {
+    "instructions": [],
+    "skills": [],
+    "prompts": [],
+    "agents": []
+  },
+  "verify_install": {
+    "$comment": "Placeholder — will be filled once `setup-enterprise-stack` ships. Pattern from illustrator plugin: scripts/verify-install.mjs runs a filesystem check of installed skill paths."
+  },
+  "mall": {
+    "$comment": "Public Mall entry — target marketplace is `alex-mall` (github: fabioc-aloha/Alex_Skill_Mall). No private-tenant dependencies.",
+    "private": false,
+    "target_marketplace": "alex-mall"
+  }
+}
