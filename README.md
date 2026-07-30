@@ -97,21 +97,23 @@ Same layout as [`alex-act-core`](https://github.com/fabioc-aloha/Alex_ACT_Core) 
 
 Full brand-new-user walkthrough (four personas, five install stages, anti-patterns): see [`Alex_ACT_Steward/constellation/USER-EXPERIENCE.md`](https://github.com/fabioc-aloha/Alex_ACT_Steward/blob/main/constellation/USER-EXPERIENCE.md).
 
-### Method A — direct install from GitHub (works today)
+### Install from the Alex ACT Mall
+
+Register the mall as a marketplace (one-time, per machine):
 
 ```powershell
-copilot plugin install fabioc-aloha/alex-act-enterprise
+copilot plugin marketplace add fabioc-aloha/Alex_Skill_Mall
 ```
 
-Installs at user scope — Enterprise's `setup-enterprise-stack` skill and `/setup-enterprise` prompt become available in every workspace.
-
-### Method B — via the Alex ACT Mall (future path)
+Then install Enterprise:
 
 ```powershell
 copilot plugin install alex-act-enterprise@alex-mall
 ```
 
-Mall entry lands after Core's mall entry does. Until then use Method A.
+Installs at user scope — Enterprise's `setup-enterprise-stack` skill and `/setup-enterprise` prompt become available in every workspace.
+
+> **Publication status.** The Mall itself is live (v3.0.0 GA, 2026-07-28). Enterprise's Mall entry lands after Core's does; until it's live, `copilot plugin install alex-act-enterprise@alex-mall` returns "plugin not found." Watch [Alex_Skill_Mall's catalog](https://github.com/fabioc-aloha/Alex_Skill_Mall/blob/main/catalog/plugins.json) or the [Steward curation log](https://github.com/fabioc-aloha/Alex_ACT_Steward/blob/main/operations/ledgers/curation-log.md) for the publication commit.
 
 ### Verify the install
 
@@ -119,7 +121,7 @@ Mall entry lands after Core's mall entry does. Until then use Method A.
 copilot plugin list
 ```
 
-You should see `alex-act-enterprise@_direct` (Method A) or `alex-act-enterprise@alex-mall` (Method B). From Copilot Chat, `/setup-enterprise` should appear in the slash-command picker.
+You should see `alex-act-enterprise@alex-mall` with the current version. From Copilot Chat, `/setup-enterprise` should appear in the slash-command picker.
 
 ## Use — configure the Microsoft ecosystem in a workspace
 
