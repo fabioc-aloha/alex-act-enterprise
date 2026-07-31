@@ -26,6 +26,5 @@
     "url": "https://github.com/fabioc-aloha/alex-act-enterprise.git"
   },
   "skills": ".github/skills",
-  "agents": ".github/agents",
   "commands": ".github/prompts"
 }
