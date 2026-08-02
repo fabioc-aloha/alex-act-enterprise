@@ -95,6 +95,8 @@ Same layout as [`alex-act-core`](https://github.com/fabioc-aloha/Alex_ACT_Core) 
 
 Full brand-new-user walkthrough (four personas, five install stages, anti-patterns): see [`Alex_ACT_Steward/constellation/USER-EXPERIENCE.md`](https://github.com/fabioc-aloha/Alex_ACT_Steward/blob/main/constellation/USER-EXPERIENCE.md).
 
+**Complete end-user installation**: [`INSTALL.md`](https://github.com/fabioc-aloha/alex-act-enterprise/blob/main/INSTALL.md).
+
 ### Install from the Alex ACT Mall
 
 Register the mall as a marketplace (one-time, per machine):
