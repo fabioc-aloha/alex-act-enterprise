@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-08-01
+
+### Fixed
+
+- Aligned manifest and README scope guidance with the existing repo-scope default and `--user` opt-in.
+- Removed empty-scaffold and pending-publication language after the skill and Mall entry shipped.
+- Qualified the plugin command as `/alex-act-enterprise setup-enterprise`.
+
 ### Scope default flipped to repo (2026-07-30)
 
 Per the constellation `PLUGIN-INTEGRATION.md` § 2 (adopted 2026-07-30 in Steward commit `ab6eb9c`), `setup-enterprise-stack` now defaults its target-block writes to **repo scope** (`.github/copilot/settings.json`) instead of user scope. The seven plugins the skill emits (Azure, Fabric-consumption/-skills/-operations/-authoring, Power BI, M365 Agents Toolkit) are project-specific tools; loading them at user scope means every non-Microsoft workspace pays the context cost for skills the heir will never invoke there.
