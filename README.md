@@ -2,6 +2,8 @@
 
 ![Alex ACT Enterprise](https://raw.githubusercontent.com/fabioc-aloha/alex-act-enterprise/main/assets/banner.svg)
 
+[Core](https://github.com/fabioc-aloha/Alex_ACT_Core) · [Manager](https://github.com/fabioc-aloha/Alex_ACT_Manager) · [Illustrator](https://github.com/fabioc-aloha/Alex_ACT_Illustrator_Plugin) · [Document Tools](https://github.com/fabioc-aloha/Alex_ACT_Document_Tools) · [Enterprise](https://github.com/fabioc-aloha/alex-act-enterprise)
+
 Alex ACT Enterprise loads Microsoft ecosystem capability where a project needs it, not into every workspace by default. One setup skill emits the repo-scoped Azure, Fabric, Power BI, and Microsoft 365 plugin configuration while preserving an explicit user-scope opt-in.
 
 **Status**: v0.1.5, published through `alex-mall`. Repository created 2026-07-30. The plugin composes with the public [Alex ACT Core](https://github.com/fabioc-aloha/Alex_ACT_Core) runtime and remains evidence-gated before release.
