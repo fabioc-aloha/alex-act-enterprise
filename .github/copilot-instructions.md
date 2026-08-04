@@ -31,8 +31,8 @@ No content lands here without Steward proposal + Fabio approval.
 
 ## Cross-links
 
-- Authoring authority: [`Alex_ACT_Steward`](https://github.com/fabioc-aloha/Alex_ACT_Steward)
-- Curation protocol: [`architecture/act/CURATION-RULES.md`](https://github.com/fabioc-aloha/Alex_ACT_Steward/blob/main/architecture/act/CURATION-RULES.md)
+- Public runtime source: [Alex_ACT_Core](https://github.com/fabioc-aloha/Alex_ACT_Core)
+- Curation protocol: [`architecture/act/CURATION-RULES.md`](https://github.com/fabioc-aloha/Alex_ACT_Core)
 - Baseline plugin: [`Alex_ACT_Core`](https://github.com/fabioc-aloha/Alex_ACT_Core)
 - Sibling shipped plugin (proof of transport): [`Alex_ACT_Illustrator_Plugin`](https://github.com/fabioc-aloha/Alex_ACT_Illustrator_Plugin)
 - Sibling private plugin (Microsoft-internal): `alex-act-msft` (not on public Mall)
