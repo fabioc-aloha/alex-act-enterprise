@@ -4,6 +4,11 @@ Alex ACT config-template plugin for the **public Microsoft ecosystem**. Ships a 
 
 **Status**: v0.1.5, published through `alex-mall`. Repository created 2026-07-30. Content lands through evidence-gated Steward proposals per [`Alex_ACT_Steward/architecture/act/CURATION-RULES.md`](https://github.com/fabioc-aloha/Alex_ACT_Steward/blob/main/architecture/act/CURATION-RULES.md).
 
+**Current compatibility:** Core `v0.6.7` provides the baseline runtime, and
+Manager `v0.1.1` provides the preferred lifecycle commands. The VS Code 1.131
+resolver workaround preserves Agent Skills while disabling the broken generic
+skill resolver.
+
 **Maintainer**: [`Alex_ACT_Steward`](https://github.com/fabioc-aloha/Alex_ACT_Steward) (top-of-chain in the plugin-architecture lineage since 2026-07-26 fork-and-freeze).
 
 ## What this is
@@ -145,7 +150,10 @@ Pass `--user` to write to user scope instead (`~/.copilot/settings.json`) — us
 copilot plugin update alex-act-enterprise
 ```
 
-Read the [CHANGELOG](CHANGELOG.md) before applying breaking updates. Core's `/alex-act-core update-plugins` prompt reads the CHANGELOG for you and consent-gates breaking changes.
+Read the [CHANGELOG](CHANGELOG.md) before applying breaking updates. Manager's
+`/alex-act-manager update-plugins` prompt reads the CHANGELOG for you and
+consent-gates breaking changes. Core's `/alex-act-core update-plugins` remains
+available as a compatibility command.
 
 ## Uninstall
 
