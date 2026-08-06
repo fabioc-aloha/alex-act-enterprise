@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-08-06
+
+### Changed
+
+- Synchronized the reset-free installation matrix and compatibility guidance
+  with the constellation's `1.0.1` patch releases.
+
 ## [1.0.0] - 2026-08-06
 
 ### Stabilized
