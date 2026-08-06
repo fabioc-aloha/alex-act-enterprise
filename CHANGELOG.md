@@ -6,6 +6,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-08-06
+
+### Stabilized
+
+- Declared the `setup-enterprise-stack` skill and namespaced setup command
+  stable under the Alex ACT semantic-versioning contract.
+
+### Changed
+
+- Updated current compatibility, source-of-truth, and Mall delivery guidance
+  after Core and Manager reached `1.0.0` and first-party delivery moved to
+  immutable origin tags.
+
 ## [0.1.5] - 2026-08-02
 
 ### Changed

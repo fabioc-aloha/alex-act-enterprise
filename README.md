@@ -6,10 +6,10 @@
 
 Alex ACT Enterprise loads Microsoft ecosystem capability where a project needs it, not into every workspace by default. One setup skill emits the repo-scoped Azure, Fabric, Power BI, and Microsoft 365 plugin configuration while preserving an explicit user-scope opt-in.
 
-**Status**: v0.1.5, published through `alex-mall`. Repository created 2026-07-30. The plugin composes with the public [Alex ACT Core](https://github.com/fabioc-aloha/Alex_ACT_Core) runtime and remains evidence-gated before release.
+**Status**: v1.0.0, published through `alex-mall`. The one-skill, one-command public surface is stable under the Alex ACT semantic-versioning contract. The plugin composes with the public [Alex ACT Core](https://github.com/fabioc-aloha/Alex_ACT_Core) runtime and remains evidence-gated before release.
 
-**Current compatibility:** Core `v0.6.7` provides the baseline runtime, and
-Manager `v0.1.1` provides the preferred lifecycle commands. The VS Code 1.131
+**Current compatibility:** Core `v1.0.0` provides the baseline runtime, and
+Manager `v1.0.0` provides the preferred lifecycle commands. The VS Code 1.131
 resolver workaround preserves Agent Skills while disabling the broken generic
 skill resolver.
 
