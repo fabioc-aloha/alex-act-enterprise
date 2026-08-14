@@ -8,8 +8,8 @@ Alex ACT Enterprise loads Microsoft ecosystem capability where a project needs i
 
 **Status**: v1.0.1, published through `alex-mall`. The one-skill, one-command public surface is stable under the Alex ACT semantic-versioning contract. The plugin composes with the public [Alex ACT Core](https://github.com/fabioc-aloha/Alex_ACT_Core) runtime and remains evidence-gated before release.
 
-**Current compatibility:** Core `v1.0.1` provides the baseline runtime, and
-Manager `v1.0.1` provides the preferred lifecycle commands. The VS Code 1.131
+**Current compatibility:** Core `v2.0.0` provides the baseline runtime, and
+Manager `v1.2.1` provides the preferred lifecycle commands. The VS Code 1.131
 resolver workaround preserves Agent Skills while disabling the broken generic
 skill resolver.
 
@@ -35,7 +35,7 @@ Every entry is **public**. Any tenant with the corresponding Microsoft subscript
 
 - **Not the Copilot CLI itself** — this plugin rides on top of Copilot CLI + Chat.
 - **Not the underlying plugins** — this is a config template. The actual plugins (`azure`, `fabric-*`, `powerbi-authoring`, `microsoft-365-agents-toolkit`) live in their upstream Microsoft repos and marketplaces. This plugin points a heir at the right block to paste.
-- **Not Microsoft-internal** — everything here is publicly available. Microsoft-internal services (WorkIQ, Agency framework, `org-report`) live in a separate private plugin, [`alex-act-msft`](../alex-act-msft) (not published to public Mall).
+- **Not Microsoft-internal** — everything here is publicly available. Microsoft-internal services (WorkIQ, Agency framework, `org-report`) live in a separate private plugin, [`alex-act-msft`](https://github.com/fabioc_microsoft/alex-act-msft) (not published to public Mall).
 - **Not opinionated about which subset to enable** — the target block enables all 7. Heirs edit their local `enabledPlugins` after the initial paste to drop plugins they don't need.
 
 ## Where this sits
@@ -47,7 +47,7 @@ Three-layer constellation stack:
 | **Baseline** | [`alex-act-core`](https://github.com/fabioc-aloha/Alex_ACT_Core) | Always-on epistemic discipline every heir needs |
 | **Specialization — visual authoring** | [`alex-act-illustrator-plugin`](https://github.com/fabioc-aloha/Alex_ACT_Illustrator_Plugin) | Charts, print figures, SVG banners, AI imagery |
 | **Specialization — Microsoft ecosystem** | **`alex-act-enterprise`** (this repo) | Config template for the public Microsoft plugin set |
-| **Specialization — Microsoft-internal** | [`alex-act-msft`](../alex-act-msft) (private) | Agency framework + WorkIQ + `org-report` scaffolding |
+| **Specialization — Microsoft-internal** | [`alex-act-msft`](https://github.com/fabioc_microsoft/alex-act-msft) (private) | Agency framework + WorkIQ + `org-report` scaffolding |
 
 Heirs enable whichever specializations apply to their workspace.
 
