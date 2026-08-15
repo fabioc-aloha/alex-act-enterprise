@@ -2,14 +2,14 @@
 
 ![Alex ACT Enterprise](https://raw.githubusercontent.com/fabioc-aloha/alex-act-enterprise/main/assets/banner.svg)
 
-[Core](https://github.com/fabioc-aloha/Alex_ACT_Core) · [Manager](https://github.com/fabioc-aloha/Alex_ACT_Manager) · [Illustrator](https://github.com/fabioc-aloha/Alex_ACT_Illustrator_Plugin) · [Document Tools](https://github.com/fabioc-aloha/Alex_ACT_Document_Tools) · [Enterprise](https://github.com/fabioc-aloha/alex-act-enterprise)
+[Core](https://github.com/fabioc-aloha/Alex_ACT_Core) · [Illustrator](https://github.com/fabioc-aloha/Alex_ACT_Illustrator_Plugin) · [Document Tools](https://github.com/fabioc-aloha/Alex_ACT_Document_Tools) · [Enterprise](https://github.com/fabioc-aloha/alex-act-enterprise)
 
 Alex ACT Enterprise loads Microsoft ecosystem capability where a project needs it, not into every workspace by default. One setup skill emits the repo-scoped Azure, Fabric, Power BI, and Microsoft 365 plugin configuration while preserving an explicit user-scope opt-in.
 
 **Status**: v1.0.1, published through `alex-mall`. The one-skill, one-command public surface is stable under the Alex ACT semantic-versioning contract. The plugin composes with the public [Alex ACT Core](https://github.com/fabioc-aloha/Alex_ACT_Core) runtime and remains evidence-gated before release.
 
 **Current compatibility:** Core `v2.0.0` provides the baseline runtime, and
-Manager `v1.2.1` provides the preferred lifecycle commands. The VS Code 1.131
+native Copilot CLI commands provide plugin lifecycle. The VS Code 1.131
 resolver workaround preserves Agent Skills while disabling the broken generic
 skill resolver.
 
@@ -158,10 +158,9 @@ Pass `--user` to write to user scope instead (`~/.copilot/settings.json`) — us
 copilot plugin update alex-act-enterprise
 ```
 
-Read the [CHANGELOG](CHANGELOG.md) before applying breaking updates. Manager's
-`/alex-act-manager update-plugins` prompt reads the CHANGELOG for you and
-consent-gates breaking changes. Core's `/alex-act-core update-plugins` remains
-available as a compatibility command.
+Read the [CHANGELOG](CHANGELOG.md) before applying breaking updates. Native
+Copilot CLI owns the update; review and consent to breaking changes before
+running it.
 
 ## Uninstall
 
