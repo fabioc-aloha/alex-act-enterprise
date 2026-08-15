@@ -35,7 +35,11 @@ Every entry is **public**. Any tenant with the corresponding Microsoft subscript
 
 - **Not the Copilot CLI itself** — this plugin rides on top of Copilot CLI + Chat.
 - **Not the underlying plugins** — this is a config template. The actual plugins (`azure`, `fabric-*`, `powerbi-authoring`, `microsoft-365-agents-toolkit`) live in their upstream Microsoft repos and marketplaces. This plugin points a heir at the right block to paste.
-- **Not Microsoft-internal** — everything here is publicly available. Microsoft-internal services (WorkIQ, Agency framework, `org-report`) live in a separate private plugin, [`alex-act-msft`](https://github.com/fabioc_microsoft/alex-act-msft) (not published to public Mall).
+- **Not Microsoft-internal** — everything here is publicly available.
+  Microsoft-internal services (WorkIQ, Agency framework, `org-report`) live in
+  the companion private plugin
+  [`alex-act-msft`](https://github.com/fabioc_microsoft/alex-act-msft), released
+  through Agency Playground and never through the public Mall.
 - **Not opinionated about which subset to enable** — the target block enables all 7. Heirs edit their local `enabledPlugins` after the initial paste to drop plugins they don't need.
 
 ## Where this sits
