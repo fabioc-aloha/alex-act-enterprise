@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Changed
+
+- Synchronized the shared installation guide and active Core compatibility
+  reference with Core `v3.0.1`, Illustrator `v2.2.1`, and Document Tools
+  `v1.1.1`.
+
 ## [1.0.2] - 2026-08-15
 
 ### Fixed
