@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [1.0.3] - 2026-08-15
+
+### Fixed
+
+- Updated the shared installation guide for the managed-source MSFT release
+  while Agency Playground registration is pending.
+
 ### Changed
 
 - Synchronized the shared installation guide and active Core compatibility
