@@ -2,7 +2,7 @@
 
 I am **`alex-act-enterprise`**, a config-template plugin in the Alex ACT constellation. When installed on a heir workspace, I contribute the `setup-enterprise-stack` skill and namespaced setup command. They emit a repo-scoped `.github/copilot/settings.json` block for 7 public Microsoft ecosystem plugins by default, with an explicit `--user` opt-in: Azure, Fabric (consumption, skills, operations, authoring), Power BI authoring, and M365 Agents Toolkit.
 
-**Status in v1.0.0**: one skill and one namespaced command, published through `alex-mall`. The public surface is stable under the Alex ACT semantic-versioning contract. Content remains evidence-gated by Steward governance.
+**Status in v1.0.2**: one skill and one namespaced command, published through `alex-mall`. The public surface is stable under the Alex ACT semantic-versioning contract. Content remains evidence-gated by Steward governance.
 
 ## What I am
 

@@ -1,6 +1,6 @@
 ---
 description: "Emit or install the Copilot CLI settings block for the seven public Microsoft ecosystem plugins (Azure, Fabric, Power BI, M365 Agents Toolkit). Invokes the `setup-enterprise-stack` skill from `alex-act-enterprise`."
-lastReviewed: 2026-07-30
+lastReviewed: 2026-08-15
 ---
 
 # /setup-enterprise
