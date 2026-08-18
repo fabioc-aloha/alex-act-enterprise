@@ -11,7 +11,7 @@ public surface is stable under the Alex ACT semantic-versioning contract. The
 plugin composes with the public [Alex ACT Core](https://github.com/fabioc-aloha/Alex_ACT_Core)
 runtime and remains evidence-gated before release.
 
-**Current compatibility:** Core `v3.1.1` provides the baseline runtime, and
+**Current compatibility:** Core `v3.1.2` provides the baseline runtime, and
 native Copilot CLI commands provide plugin lifecycle. The VS Code 1.131
 resolver workaround preserves Agent Skills while disabling the broken generic
 skill resolver.
