@@ -13,7 +13,8 @@ Last verified: 2026-08-15.
 | Core | `3.0.2` | `alex-act-core@alex-mall` |
 | Illustrator | `2.2.2` | `alex-act-illustrator-plugin@alex-mall` |
 | Document Tools | `1.1.1` | `alex-act-document-tools@alex-mall` |
-| Enterprise | `1.0.3` | `alex-act-enterprise@alex-mall` |
+| Enterprise (Copilot-compatible) | `1.1.0` | `alex-act-enterprise@alex-mall` |
+| Enterprise (strict portable) | `0.1.0` | `alex-act-enterprise-portable@alex-mall` |
 | MSFT | `1.1.4` | `fabioc_microsoft/alex-act-msft`, managed-source access required |
 
 ## Prerequisites
@@ -87,7 +88,9 @@ corporate-network access, and managed-source access before installing it.
 Use `copilot plugin install <plugin>@<marketplace>` for public specializations
 and `copilot plugin install fabioc_microsoft/alex-act-msft` for MSFT, then use
 `copilot plugin list` for verification. Each specialization's namespaced setup
-command owns its downstream configuration.
+command owns its downstream configuration. Choose either
+`alex-act-enterprise` or `alex-act-enterprise-portable`, not both, because both
+expose the same setup skill.
 
 ## 5. Verify Core Activation
 

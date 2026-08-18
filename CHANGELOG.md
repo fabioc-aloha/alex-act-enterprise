@@ -6,6 +6,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-08-17
+
+### Fixed
+
+- Added explicit emit-only safeguards that prohibit host todo or task creation
+  and all settings, plugin, and marketplace writes.
+
+### Added
+
+- Added generated Copilot-compatible and strict portable package outputs from
+  one canonical skill and prompt source.
+- Added `alex-act-enterprise-portable` as the separately named strict Agent
+  Plugins 1.0 package. It must not be installed alongside
+  `alex-act-enterprise` because both expose the same setup skill.
+
 ## [1.0.3] - 2026-08-15
 
 ### Fixed

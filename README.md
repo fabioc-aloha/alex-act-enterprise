@@ -6,7 +6,10 @@
 
 Alex ACT Enterprise loads Microsoft ecosystem capability where a project needs it, not into every workspace by default. One setup skill emits the repo-scoped Azure, Fabric, Power BI, and Microsoft 365 plugin configuration while preserving an explicit user-scope opt-in.
 
-**Status**: v1.0.3, published through `alex-mall`. The one-skill, one-command public surface is stable under the Alex ACT semantic-versioning contract. The plugin composes with the public [Alex ACT Core](https://github.com/fabioc-aloha/Alex_ACT_Core) runtime and remains evidence-gated before release.
+**Status**: v1.1.0, published through `alex-mall`. The one-skill, one-command
+public surface is stable under the Alex ACT semantic-versioning contract. The
+plugin composes with the public [Alex ACT Core](https://github.com/fabioc-aloha/Alex_ACT_Core)
+runtime and remains evidence-gated before release.
 
 **Current compatibility:** Core `v3.0.2` provides the baseline runtime, and
 native Copilot CLI commands provide plugin lifecycle. The VS Code 1.131
@@ -14,6 +17,36 @@ resolver workaround preserves Agent Skills while disabling the broken generic
 skill resolver.
 
 **Public runtime baseline**: [Alex_ACT_Core](https://github.com/fabioc-aloha/Alex_ACT_Core).
+
+## Dual-package delivery
+
+The repository generates two packages from the existing canonical skill and
+prompt:
+
+| Output | Purpose |
+| --- | --- |
+| `packages/portable/` | Strict Agent Plugins 1.0 package named `alex-act-enterprise-portable`, with the portable setup skill only. |
+| `packages/copilot/` | Copilot-format package named `alex-act-enterprise`, with the setup skill and namespaced command. |
+
+Regenerate outputs with
+`node scripts/build-dual-packages.cjs --write`, then verify that generated
+content is current with `node scripts/test-dual-packages.cjs`. The generated
+emit-only flow prohibits host todo and task creation as well as settings,
+plugin, and marketplace writes.
+
+Install exactly one package:
+
+```powershell
+# Copilot CLI, VS Code, and GitHub Copilot app:
+copilot plugin install alex-act-enterprise@alex-mall
+
+# Strict Agent Plugins 1.0 consumers:
+copilot plugin install alex-act-enterprise-portable@alex-mall
+```
+
+Do not install both packages. They expose the same
+`setup-enterprise-stack` skill name, and host precedence would make the active
+copy ambiguous.
 
 ## What this is
 
@@ -93,7 +126,9 @@ alex-act-enterprise/
 │   ├── copilot-instructions.md
 │   ├── skills/                 # setup-enterprise-stack
 │   └── prompts/                # setup-enterprise command
-└── .vscode/                    # workspace settings for self-dogfooding
+├── .vscode/                    # workspace settings for self-dogfooding
+├── packages/                   # generated Copilot-compatible and strict portable outputs
+└── scripts/                    # output and safety-contract verification
 ```
 
 Same layout as [`alex-act-core`](https://github.com/fabioc-aloha/Alex_ACT_Core) and [`alex-act-illustrator-plugin`](https://github.com/fabioc-aloha/Alex_ACT_Illustrator_Plugin) — the proven Steward-authored CLI plugin pattern.

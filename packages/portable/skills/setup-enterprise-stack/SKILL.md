@@ -181,6 +181,6 @@ Track outcomes in the maintaining repo's curation log.
 
 ## Related
 
-- [`/alex-act-enterprise setup-enterprise`](../../prompts/setup-enterprise.prompt.md) — namespaced slash-command entry point
+- The Copilot compatibility package carries the namespaced `/alex-act-enterprise setup-enterprise` command.
 - `alex-act-msft`'s `setup-msft-stack` skill — sibling for internal-only plugins
 - Steward's user-brain inventory § 184 — source spec for this block
