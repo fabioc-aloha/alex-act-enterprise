@@ -6,6 +6,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-08-18
+
+### Removed
+
+- **`alex-act-enterprise-portable` is retired** (ADR-040). The strict Agent Plugins 1.0 package shipped at `v1.1.0` and is withdrawn from the Alex ACT Mall. This plugin's only skill emits Copilot CLI settings — `enabledPlugins`, `extraKnownMarketplaces`, and marketplace registration — so a portable package installed cleanly on a non-Copilot host and then had nothing to configure. Enterprise is therefore exempt from ADR-037's portable lane; sources whose skills are host-agnostic, such as Document Tools, are not.
+- `packages/portable/` and its generator and contract-test coverage.
+
+### Changed
+
+- `scripts/build-dual-packages.cjs` → `scripts/build-packages.cjs` and `scripts/test-dual-packages.cjs` → `scripts/test-packages.cjs`. Only one package is generated, so the previous names were inaccurate.
+- README documents single-package delivery and records why the portable lane does not apply here.
+
+### Fixed
+
+- Prerequisites named the nonexistent winget package `GitHub.CopilotCLI`. The published identifier is `GitHub.Copilot`.
+
+Inside `packages/copilot/`, only the manifest version changed. The skill body and the command are byte-identical to `v1.1.0`, so the `alex-act-enterprise` public surface — the `setup-enterprise-stack` skill and the namespaced `setup-enterprise` command — is unchanged.
+
 ## [1.1.0] - 2026-08-17
 
 ### Fixed

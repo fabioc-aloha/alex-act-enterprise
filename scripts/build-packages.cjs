@@ -12,7 +12,7 @@ const licensePath = path.join(root, 'LICENSE');
 
 const args = new Set(process.argv.slice(2));
 if ([...args].some((argument) => argument !== '--write' && argument !== '--check')) {
-  throw new Error('Usage: node scripts/build-dual-packages.cjs [--write|--check]');
+  throw new Error('Usage: node scripts/build-packages.cjs [--write|--check]');
 }
 if (args.has('--write') && args.has('--check')) {
   throw new Error('--write and --check cannot be combined');
@@ -43,26 +43,11 @@ const sourceSkill = read(sourceSkillPath);
 const sourcePrompt = read(sourcePromptPath);
 const license = read(licensePath);
 
-const portableSkill = sourceSkill.replace(
-  '- [`/alex-act-enterprise setup-enterprise`](../../prompts/setup-enterprise.prompt.md) — namespaced slash-command entry point',
-  '- The Copilot compatibility package carries the namespaced `/alex-act-enterprise setup-enterprise` command.',
-);
 const copilotSkill = sourceSkill.replace(
   '../../prompts/setup-enterprise.prompt.md',
   '../../commands/setup-enterprise.md',
 );
 
-const portableManifest = {
-  $schema: 'https://agent-plugins.org/schemas/1.0.0/plugin.schema.json',
-  name: 'alex-act-enterprise-portable',
-  version: '0.1.0',
-  description: 'Portable Agent Plugins package for the Alex ACT Enterprise setup skill.',
-  author: legacy.author,
-  homepage: legacy.homepage,
-  repository: legacy.repository.url,
-  license: legacy.license,
-  keywords: legacy.keywords,
-};
 const copilotManifest = {
   name: legacy.name,
   version: legacy.version,
@@ -78,9 +63,6 @@ const copilotManifest = {
 };
 
 const expected = new Map([
-  ['portable/LICENSE', license],
-  ['portable/plugin.json', stableJson(portableManifest)],
-  ['portable/skills/setup-enterprise-stack/SKILL.md', portableSkill],
   ['copilot/LICENSE', license],
   ['copilot/plugin.json', stableJson(copilotManifest)],
   ['copilot/skills/setup-enterprise-stack/SKILL.md', copilotSkill],
@@ -117,8 +99,8 @@ for (const relativePath of expectedFiles) {
 }
 
 if (drift.length) {
-  process.stderr.write(`dual-package: ${drift.join('; ')}\n`);
+  process.stderr.write(`package: ${drift.join('; ')}\n`);
   process.exit(1);
 }
 
-process.stdout.write(`Dual package outputs are current (${expected.size} files).\n`);
+process.stdout.write(`Package outputs are current (${expected.size} files).\n`);

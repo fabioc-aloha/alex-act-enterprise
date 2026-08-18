@@ -18,35 +18,33 @@ skill resolver.
 
 **Public runtime baseline**: [Alex_ACT_Core](https://github.com/fabioc-aloha/Alex_ACT_Core).
 
-## Dual-package delivery
+## Package delivery
 
-The repository generates two packages from the existing canonical skill and
+The repository generates its published package from the canonical skill and
 prompt:
 
 | Output | Purpose |
 | --- | --- |
-| `packages/portable/` | Strict Agent Plugins 1.0 package named `alex-act-enterprise-portable`, with the portable setup skill only. |
 | `packages/copilot/` | Copilot-format package named `alex-act-enterprise`, with the setup skill and namespaced command. |
 
 Regenerate outputs with
-`node scripts/build-dual-packages.cjs --write`, then verify that generated
-content is current with `node scripts/test-dual-packages.cjs`. The generated
+`node scripts/build-packages.cjs --write`, then verify that generated
+content is current with `node scripts/test-packages.cjs`. The generated
 emit-only flow prohibits host todo and task creation as well as settings,
 plugin, and marketplace writes.
 
-Install exactly one package:
+Install:
 
 ```powershell
-# Copilot CLI, VS Code, and GitHub Copilot app:
 copilot plugin install alex-act-enterprise@alex-mall
-
-# Strict Agent Plugins 1.0 consumers:
-copilot plugin install alex-act-enterprise-portable@alex-mall
 ```
 
-Do not install both packages. They expose the same
-`setup-enterprise-stack` skill name, and host precedence would make the active
-copy ambiguous.
+A strict Agent Plugins 1.0 package, `alex-act-enterprise-portable`, shipped
+briefly at `v1.1.0` and was retired under ADR-040. This plugin's only skill
+emits Copilot CLI settings, so a portable package installed cleanly on a
+non-Copilot host and then had nothing to configure. Enterprise is exempt from
+the portable lane for that reason; other sources whose skills are
+host-agnostic are not.
 
 ## What this is
 
@@ -127,7 +125,7 @@ alex-act-enterprise/
 │   ├── skills/                 # setup-enterprise-stack
 │   └── prompts/                # setup-enterprise command
 ├── .vscode/                    # workspace settings for self-dogfooding
-├── packages/                   # generated Copilot-compatible and strict portable outputs
+├── packages/                   # generated Copilot-format package output
 └── scripts/                    # output and safety-contract verification
 ```
 
@@ -137,7 +135,7 @@ Same layout as [`alex-act-core`](https://github.com/fabioc-aloha/Alex_ACT_Core) 
 
 **Prerequisites** (once per machine):
 
-- **Copilot CLI ≥ 1.0.75** — [install docs](https://docs.github.com/copilot/how-tos/set-up/install-copilot-cli). Update with `winget upgrade --id GitHub.CopilotCLI` on Windows.
+- **Copilot CLI ≥ 1.0.75** — [install docs](https://docs.github.com/copilot/how-tos/set-up/install-copilot-cli). Update with `winget upgrade --id GitHub.Copilot` on Windows.
 - **GitHub CLI authenticated** — `gh auth login` and confirm with `gh auth status`.
 - **Alex ACT Core installed first** — `alex-act-enterprise` composes on top of Core's plugin-management framework.
 

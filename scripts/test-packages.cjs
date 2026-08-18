@@ -6,8 +6,7 @@ const path = require('node:path');
 const { spawnSync } = require('node:child_process');
 
 const root = path.resolve(__dirname, '..');
-const builder = path.join(__dirname, 'build-dual-packages.cjs');
-const portableRoot = path.join(root, 'packages', 'portable');
+const builder = path.join(__dirname, 'build-packages.cjs');
 const copilotRoot = path.join(root, 'packages', 'copilot');
 
 const checked = spawnSync(process.execPath, [builder, '--check'], {
@@ -16,21 +15,8 @@ const checked = spawnSync(process.execPath, [builder, '--check'], {
 });
 assert.equal(checked.status, 0, checked.stderr);
 
-const portable = JSON.parse(fs.readFileSync(path.join(portableRoot, 'plugin.json'), 'utf8'));
-assert.deepEqual(Object.keys(portable).sort(), [
-  '$schema',
-  'author',
-  'description',
-  'homepage',
-  'keywords',
-  'license',
-  'name',
-  'repository',
-  'version',
-]);
-assert.equal(portable.$schema, 'https://agent-plugins.org/schemas/1.0.0/plugin.schema.json');
-assert.equal(portable.name, 'alex-act-enterprise-portable');
-assert.equal(fs.existsSync(path.join(portableRoot, 'commands')), false);
+// ADR-040 retired the portable package; the build must not resurrect it.
+assert.equal(fs.existsSync(path.join(root, 'packages', 'portable')), false);
 
 const copilot = JSON.parse(fs.readFileSync(path.join(copilotRoot, 'plugin.json'), 'utf8'));
 assert.equal('$schema' in copilot, false);
@@ -43,4 +29,4 @@ assert.match(command, /^---\r?\ndescription:/);
 assert.match(command, /setup-enterprise-stack/);
 assert.match(command, /do not create or update todos, tasks, plan items/i);
 
-process.stdout.write('Dual package outputs satisfy the Enterprise pilot contract.\n');
+process.stdout.write('Package outputs satisfy the Enterprise contract.\n');
