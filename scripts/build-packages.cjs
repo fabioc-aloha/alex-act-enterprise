@@ -23,6 +23,10 @@ function read(filePath) {
   return fs.readFileSync(filePath, 'utf8');
 }
 
+function normalizeLineEndings(content) {
+  return content.replace(/\r\n/g, '\n');
+}
+
 function stableJson(value) {
   return `${JSON.stringify(value, null, 2)}\n`;
 }
@@ -85,7 +89,7 @@ for (const [relativePath, content] of expected) {
   const destination = path.join(packagesRoot, ...relativePath.split('/'));
   if (!fs.existsSync(destination)) {
     drift.push(`Missing ${relativePath}`);
-  } else if (read(destination) !== content) {
+  } else if (normalizeLineEndings(read(destination)) !== normalizeLineEndings(content)) {
     drift.push(`Drifted ${relativePath}`);
   }
 }
