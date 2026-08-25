@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [1.1.2] - 2026-08-25
+
+### Fixed
+
+- Made generated text comparison line-ending neutral so Windows CRLF checkout
+  normalization no longer appears as package drift. Package content and the
+  public setup contract are unchanged.
+- Removed stale source-manifest wording that still described the retired
+  portable Enterprise package.
+
 ## [1.1.1] - 2026-08-18
 
 ### Removed
